@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Jornada das Emoções</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
+        .question { margin-bottom: 20px; }
+        .question h3 { color: #333; }
+        .options input { margin-right: 10px; }
+        #resultado { margin-top: 30px; padding: 20px; background: #e0ffe0; border-radius: 8px; display: none; }
+        button { padding: 10px 20px; background: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Jornada das Emoções</h1>
+    <p>Descubra suas habilidades socioemocionais com base em situações reais do dia a dia escolar e profissional.</p>
+
+    <form id="quizForm">
+        <div class="question">
+            <h3>1. Um colega está passando por dificuldades em casa e tem afetado seu rendimento. O que você faz?</h3>
+            <div class="options">
+                <label><input type="radio" name="q1" value="empatia"> Ofereço apoio e escuto com atenção.</label><br>
+                <label><input type="radio" name="q1" value="organização"> Aconselho ele a manter a rotina para não se perder.</label><br>
+                <label><input type="radio" name="q1" value="resiliência"> Compartilho como enfrentei situações parecidas.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>2. Você precisa montar um projeto com prazo apertado e pouca informação. Qual sua reação?</h3>
+            <div class="options">
+                <label><input type="radio" name="q2" value="pensamento_critico"> Analiso os recursos disponíveis para tomar decisões rápidas.</label><br>
+                <label><input type="radio" name="q2" value="autogestao"> Crio um cronograma para me organizar melhor.</label><br>
+                <label><input type="radio" name="q2" value="criatividade"> Penso em uma solução criativa com o que tenho.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>3. Durante um atendimento ao público, alguém é grosseiro com você. Como lida com a situação?</h3>
+            <div class="options">
+                <label><input type="radio" name="q3" value="inteligencia_emocional"> Respiro fundo e mantenho a calma.</label><br>
+                <label><input type="radio" name="q3" value="comunicacao"> Tento entender o motivo e dialogar.</label><br>
+                <label><input type="radio" name="q3" value="autorregulamentacao"> Reflito antes de reagir para não perder o controle.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>4. Você está em um novo ambiente profissional com colegas muito diferentes de você.</h3>
+            <div class="options">
+                <label><input type="radio" name="q4" value="competencia_cultural"> Respeito as diferenças e aprendo com elas.</label><br>
+                <label><input type="radio" name="q4" value="adaptabilidade"> Me adapto rapidamente ao estilo de trabalho deles.</label><br>
+                <label><input type="radio" name="q4" value="escuta_ativa"> Escuto mais para entender a dinâmica do grupo.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>5. Você quer crescer profissionalmente, mas sente que falta algo. O que você faz?</h3>
+            <div class="options">
+                <label><input type="radio" name="q5" value="aprendizado_continuo"> Procuro cursos gratuitos para aprender mais.</label><br>
+                <label><input type="radio" name="q5" value="autoconhecimento"> Faço um exercício de reflexão sobre minhas forças e fraquezas.</label><br>
+                <label><input type="radio" name="q5" value="iniciativa"> Tomo a frente e proponho melhorias na equipe.</label>
+            </div>
+        </div>
+
+        <button type="button" onclick="mostrarResultado()">Ver Resultado</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function mostrarResultado() {
+            const form = document.forms['quizForm'];
+            const respostas = [form.q1.value, form.q2.value, form.q3.value, form.q4.value, form.q5.value];
+            const contagem = {};
+
+            respostas.forEach(skill => {
+                contagem[skill] = (contagem[skill] || 0) + 1;
+            });
+
+            const topSkills = Object.entries(contagem)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 3)
+                .map(skill => skill[0].replaceAll("_", " "));
+
+            document.getElementById("resultado").innerHTML =
+                "<h2>Suas habilidades mais fortes são:</h2><ul><li>" + topSkills.join("</li><li>") + "</li></ul><p>Inclua essas habilidades no seu currículo para destacar seu potencial!</p>";
+            document.getElementById("resultado").style.display = "block";
+        }
+    </script>
+</body>
+</html>
