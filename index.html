@@ -3,7 +3,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Jornada das Emoções</title>
+    <title>Jornada das Emoções - 10 Perguntas</title>
     <style>
         body { font-family: Arial, sans-serif; background: #f4f4f9; padding: 20px; }
         .question { margin-bottom: 20px; }
@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h1>Jornada das Emoções</h1>
+    <h1>Jornada das Emoções - 10 Perguntas</h1>
     <p>Descubra suas habilidades socioemocionais com base em situações reais do dia a dia escolar e profissional.</p>
 
     <form id="quizForm">
@@ -63,6 +63,51 @@
             </div>
         </div>
 
+        <div class="question">
+            <h3>6. Seu chefe solicita que você entregue um projeto importante com um prazo curto. O que faz?</h3>
+            <div class="options">
+                <label><input type="radio" name="q6" value="responsabilidade"> Entro em ação imediatamente para cumprir o prazo.</label><br>
+                <label><input type="radio" name="q6" value="autogestao"> Organizo as tarefas em etapas e me concentro em uma por vez.</label><br>
+                <label><input type="radio" name="q6" value="flexibilidade"> Procuro ajustar as prioridades do meu trabalho para adaptar à demanda.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>7. Quando um colega precisa de ajuda, você...</h3>
+            <div class="options">
+                <label><input type="radio" name="q7" value="empatia"> Ofereço ajuda de forma acolhedora, sem ser solicitado.</label><br>
+                <label><input type="radio" name="q7" value="comunicacao"> Pergunto o que ele precisa e procuro solucionar o problema juntos.</label><br>
+                <label><input type="radio" name="q7" value="adaptabilidade"> Me esforço para entender o problema e me adaptar ao tipo de ajuda necessária.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>8. Quando enfrenta um desafio no trabalho, você tende a...</h3>
+            <div class="options">
+                <label><input type="radio" name="q8" value="resiliência"> Encaro o problema de frente, buscando soluções alternativas.</label><br>
+                <label><input type="radio" name="q8" value="criatividade"> Busco formas criativas de contornar o obstáculo de maneira inovadora.</label><br>
+                <label><input type="radio" name="q8" value="autoconsciencia"> Reflito sobre o que posso aprender com a situação e melhoro meu desempenho.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>9. Como você reage quando recebe críticas construtivas no trabalho?</h3>
+            <div class="options">
+                <label><input type="radio" name="q9" value="autoconsciencia"> Aceito com humildade e busco entender o que posso melhorar.</label><br>
+                <label><input type="radio" name="q9" value="autorregulamentacao"> Tento controlar minha reação e usar a crítica para meu crescimento.</label><br>
+                <label><input type="radio" name="q9" value="resiliência"> Encaro como uma oportunidade para fortalecer minhas habilidades.</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>10. Durante uma reunião importante, você tem uma ideia inovadora, mas não sabe se ela será bem recebida. O que faz?</h3>
+            <div class="options">
+                <label><input type="radio" name="q10" value="iniciativa"> Apresento minha ideia com confiança, acreditando que pode agregar valor.</label><br>
+                <label><input type="radio" name="q10" value="criatividade"> Sugiro minha ideia de uma forma criativa, conectando-a aos objetivos do grupo.</label><br>
+                <label><input type="radio" name="q10" value="comunicacao"> Explico de maneira clara e objetiva, aguardando o retorno do grupo.</label>
+            </div>
+        </div>
+
         <button type="button" onclick="mostrarResultado()">Ver Resultado</button>
     </form>
 
@@ -71,7 +116,7 @@
     <script>
         function mostrarResultado() {
             const form = document.forms['quizForm'];
-            const respostas = [form.q1.value, form.q2.value, form.q3.value, form.q4.value, form.q5.value];
+            const respostas = [form.q1.value, form.q2.value, form.q3.value, form.q4.value, form.q5.value, form.q6.value, form.q7.value, form.q8.value, form.q9.value, form.q10.value];
             const contagem = {};
 
             respostas.forEach(skill => {
